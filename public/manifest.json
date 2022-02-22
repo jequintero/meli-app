@@ -1,0 +1,15 @@
+{
+  "short_name": "Mercado Libre",
+  "name": "Mercado Libre technical challenge",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "72x72",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#FFE600",
+  "background_color": "#ffffff"
+}
