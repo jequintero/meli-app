@@ -10,7 +10,18 @@
     "node": ">=10.15"
   },
   "scripts": {
-    "start": "node scripts/start.js"
+    "start": "node scripts/start.js",
+    "lint": "eslint src/**/*.js",
+    "format": "prettier --write \"src/**/*.{js,json,css}\""
+  },
+  "lint-staged": {
+    "*.js": [
+      "yarn run lint"
+    ],
+    "*.{js,json,css}": [
+      "yarn run format",
+      "git add"
+    ]
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
@@ -35,6 +46,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^2.0.1",
+    "husky": "^3.0.5",
     "prettier": "^1.18.2",
     "react-dev-utils": "^12.0.0",
     "react-test-renderer": "^17.0.2",
@@ -53,7 +65,6 @@
     "express": "^4.17.1",
     "fs-extra": "^8.1.0",
     "helmet": "^3.20.1",
-    "husky": "^3.0.5",
     "import-glob-loader": "^1.1.0",
     "isomorphic-unfetch": "^3.0.0",
     "jest": "^24.9.0",
