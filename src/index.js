@@ -1,22 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
-import Loadable from 'react-loadable';
+if (browserSupportsAllFeatures()) {
+  runMain();
+} else {
+  loadScript(window.__ASSET_MANIFEST__['polyfills.js'], runMain);
+}
 
-import App from './components/App';
-import { ServerDataProvider } from './state/serverDataContext';
+function runMain() {
+  const { main } = require('./main');
+  main();
+}
 
-const serverData = window.__SERVER_DATA__;
+function browserSupportsAllFeatures() {
+  return window.Promise && Object.assign;
+}
 
-export const main = () => {
-  Loadable.preloadReady().then(() => {
-    ReactDOM.hydrate(
-      <ServerDataProvider value={serverData}>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </ServerDataProvider>,
-      document.getElementById('root')
-    );
-  });
-};
+function loadScript(src, done) {
+  const script = document.createElement('script');
+
+  script.src = src;
+  script.onload = () => {
+    done();
+  };
+  script.onerror = () => {
+    done(new Error('Failed to load script ' + src));
+  };
+
+  document.head.appendChild(script);
+}
