@@ -2,54 +2,56 @@
 $navbar-separation: 5em;
 $search-icon: '/images/ic_Search';
 
-nav {
-  background: $primary;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5em;
-  padding: 0.5em 20%;
-
-  .logoContainer {
+header {
+  nav {
+    background: $primary;
     display: flex;
-    margin: 0;
-    width: $navbar-separation;
-    .logo {
-      width: 53px;
-    }
-  }
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em;
+    padding: 0.5em 20%;
 
-  .searchContainer {
-    display: flex;
-    background: $white;
-    border-radius: 0.25px;
-    overflow: hidden;
-    width: calc(100% - #{$navbar-separation});
-    position: relative;
-  
-    .input {
-      border: none;
-      font-size: 1.125em;
-      padding: 0.5em 1.5em 0.5em 0.5em;
-      outline: none;
-      width: 100%;
+    .logoContainer {
+      display: flex;
+      margin: 0;
+      width: $navbar-separation;
+      .logo {
+        width: 53px;
+      }
     }
-    .submit {
-      background: image-set(
-        url($search-icon + '.png') 1x,
-        url($search-icon + '@2x.png') 2x
-      ), $light-gray;
-      background-repeat: no-repeat;
-      background-position: center;
-      border: none;
-      padding: 0 1.5em;
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      top: 0;
-      &:hover {
-        cursor: pointer;
+
+    .searchContainer {
+      display: flex;
+      background: $white;
+      border-radius: 0.25em;
+      overflow: hidden;
+      width: calc(100% - #{$navbar-separation});
+      position: relative;
+    
+      .input {
+        border: none;
+        font-size: 1.125em;
+        padding: 0.5em 1.5em 0.5em 0.5em;
+        outline: none;
+        width: 100%;
+      }
+      .submit {
+        background: image-set(
+          url($search-icon + '.png') 1x,
+          url($search-icon + '@2x.png') 2x
+        ), $light-gray;
+        background-repeat: no-repeat;
+        background-position: center;
+        border: none;
+        padding: 0 1.5em;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
   }

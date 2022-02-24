@@ -20,7 +20,12 @@ const NavBar = () => {
           name="search"
           placeholder="Nunca dejes de buscar"
         ></input>
-        <input className={styles.submit} type="submit" value=""></input>
+        <input
+          className={styles.submit}
+          type="submit"
+          value=""
+          data-testid="search"
+        ></input>
       </form>
     </nav>
   );
