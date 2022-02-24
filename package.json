@@ -28,6 +28,9 @@
       "git add"
     ]
   },
+  "prettier": {
+    "singleQuote": true
+  },
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
