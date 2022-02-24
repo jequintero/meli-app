@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Loadable from 'react-loadable';
+import NavBar from './NavBar';
 
 const LoadableHomePage = Loadable({
   loader: () => import('../containers/HomePage'),
@@ -9,6 +10,9 @@ const LoadableHomePage = Loadable({
 
 const App = () => (
   <div className="app">
+    <header>
+      <NavBar />
+    </header>
     <main className="main">
       <Switch>
         <Route exact path="/" component={LoadableHomePage} />
