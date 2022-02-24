@@ -1,15 +1,14 @@
-import React from 'react';
-import { Switch, Route } from 'react-router-dom';
-import Loadable from 'react-loadable';
+import React from "react";
+import { Switch, Route } from "react-router-dom";
+import Loadable from "react-loadable";
 
 const LoadableHomePage = Loadable({
-  loader: () => import('../containers/HomePage'),
+  loader: () => import("../containers/HomePage"),
   loading: () => <div>Loading</div>
 });
 
 const App = () => (
   <div className="app">
-
     <main className="main">
       <Switch>
         <Route exact path="/" component={LoadableHomePage} />
