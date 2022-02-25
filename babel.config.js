@@ -17,7 +17,14 @@ module.exports = function(api) {
     'react-loadable/babel',
     '@babel/plugin-transform-runtime',
     '@babel/plugin-proposal-class-properties',
-    '@babel/plugin-syntax-dynamic-import'
+    '@babel/plugin-syntax-dynamic-import',
+    [
+      'formatjs',
+      {
+        idInterpolationPattern: '[sha512:contenthash:base64:6]',
+        ast: true
+      }
+    ]
   ];
 
   return {

@@ -1,8 +1,12 @@
 import React from 'react';
 import { imagePath } from '../../utils/assetUtils';
+import PropTypes from 'prop-types';
+import { injectIntl } from 'react-intl';
+import messages from './messages';
 import styles from './navbar.module.scss';
 
-const NavBar = () => {
+const NavBar = ({ intl }) => {
+  const { formatMessage } = intl;
   return (
     <nav>
       <figure className={styles.logoContainer}>
@@ -10,7 +14,7 @@ const NavBar = () => {
           className={styles.logo}
           src={imagePath('Logo_ML.png')}
           srcSet={imagePath('Logo_ML@2x.png')}
-          alt="Logotipo mercado libre"
+          alt={formatMessage(messages.logoAlt)}
         />
       </figure>
       <form className={styles.searchContainer}>
@@ -18,7 +22,7 @@ const NavBar = () => {
           className={styles.input}
           type="search"
           name="search"
-          placeholder="Nunca dejes de buscar"
+          placeholder={formatMessage(messages.searchPlaceholder)}
         ></input>
         <input
           className={styles.submit}
@@ -31,4 +35,8 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+NavBar.propTypes = {
+  intl: PropTypes.object.isRequired
+};
+
+export default injectIntl(NavBar);
