@@ -8,7 +8,7 @@ require('@babel/register')({
       'css-modules-transform',
       {
         camelCase: true,
-        extensions: ['.css', '.scss'],
+        extensions: ['.css', '.scss', '.sass'],
         generateScopedName: '[hash:base64]'
       }
     ],
