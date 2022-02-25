@@ -2,5 +2,7 @@
   "app.components.NavBar.searchPlaceholder": "Nunca dejes de buscar",
   "app.components.NavBar.logoAlt": "Logotipo mercado libre",
 
-  "app.containers.HomePage.title": "Mercado Libre"
+  "app.containers.HomePage.title": "Mercado Libre",
+
+  "app.containers.SearchResults.title": "Resultados"
 }
