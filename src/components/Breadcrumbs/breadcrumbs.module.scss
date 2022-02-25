@@ -1,0 +1,29 @@
+@import '../../styles/colors';
+
+.breadcrumbs {
+    display: flex;
+    align-items: flex-start;
+    color: $medium-gray;
+    margin: 1em 0;
+    ul {
+        list-style: none;
+        display: grid;
+        padding: 0;
+        margin: 0;
+        grid-auto-flow: column;
+        li {
+            display: flex;
+            align-items: center;
+        }
+        li+li:before {
+            padding: 0 0.3em;
+            line-height: 0;
+            content: "\2303";
+            display: inline-block;
+            transform: rotate(90deg);
+        }
+        li:last-child {
+            font-weight: 500;
+        }
+    }
+}
