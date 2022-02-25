@@ -27,8 +27,6 @@ class App extends Component {
               <Route exact path="/" component={LoadableHomePage} />
             </Switch>
           </main>
-
-          <footer />
         </div>
       </IntlProvider>
     );
