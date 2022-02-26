@@ -1,18 +1,31 @@
 @import '../../styles/colors';
 @import '../../styles/fonts';
+@import '../../styles/responsive';
 
 $navbar-separation: 5em;
 $search-icon: '/images/ic_Search';
 
 header {
+  background: $primary;
   nav {
-    background: $primary;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5em 20%;
+    padding: 0.5em 1em;
 
+    @media (min-width: $tablet-width) {
+      max-width: $max-tablet-width;
+      margin: 0 auto;
+      padding: 0.5em 0;
+    }
+    @media (min-width: $normal-desktop-width) {
+      max-width: $max-normal-desktop-width;
+    }
+    @media (min-width: $large-desktop-width) {
+      max-width: $max-large-desktop-width;
+    }
+  
     .logoContainer {
       display: flex;
       margin: 0;

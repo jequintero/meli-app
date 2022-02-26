@@ -15,9 +15,17 @@ body
     text-decoration: none
     &:hover
       text-decoration: underline
-
   .main
     padding: 0 1em
+    display: grid
+    margin: 0 auto
+    max-width: $max-phone-width
+    @media (min-width: $tablet-width)
+      max-width: $max-tablet-width
+    @media (min-width: $normal-desktop-width)
+      max-width: $max-normal-desktop-width
+    @media (min-width: $large-desktop-width)
+      max-width: $max-large-desktop-width
 
 #root
   min-height: 100
