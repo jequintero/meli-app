@@ -1,0 +1,67 @@
+@import '../../styles/colors';
+@import '../../styles/responsive';
+
+$search-icon: '/images/ic_shipping';
+$product-image-size: 11.25rem;
+
+li.product {
+    padding: 1rem;
+    position: relative;
+    div.productInfo {
+        display: grid;
+        grid-gap: 1rem;
+        grid-template-columns: $product-image-size 42% 1fr;
+        grid-template-rows: 1fr;
+        align-items: start;
+        @media (min-width: $tablet-width) {
+            grid-template-columns: $product-image-size 45% 1fr;
+        }
+        figure {
+            width: $product-image-size;
+            height: $product-image-size;
+            display: inline-flex;
+            margin: 0;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0.25rem;
+        }
+        div.details {
+            color: $dark-gray;
+            margin: 0.6rem 0;
+            h3:after {
+                content: "";
+                width: 18px;
+                height: 18px;
+                margin-left: 0.625rem;
+                display: inline-block;
+                background: image-set(
+                    url($search-icon + '.png') 1x,
+                    url($search-icon + '@2x.png') 2x
+                  );
+                background-size: cover;
+            }
+            p.description {
+                margin-top: 2rem;
+                font-size: 1.125rem;
+            }
+        }
+        div.city {
+            margin: 2.2rem 0;
+            text-align: center;
+            display: flex;
+            justify-content: flex-start;
+            @media (min-width: $tablet-width) {
+                justify-content: flex-end;
+            }
+            p {
+                color: $medium-gray;
+                font-size: 0.75rem;
+                width: 60%;
+            }
+        }
+
+    }
+}

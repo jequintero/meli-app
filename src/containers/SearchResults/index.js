@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { injectIntl } from 'react-intl';
 import { Helmet } from 'react-helmet';
 import Breadcrumbs from '../../components/Breadcrumbs';
+import styles from './searchResults.module.scss';
 import messages from './messages';
 
 const SearchResults = ({ intl }) => {
@@ -13,6 +14,9 @@ const SearchResults = ({ intl }) => {
         <title>{formatMessage(messages.title)}</title>
       </Helmet>
       <Breadcrumbs />
+      <section className={styles.searchResultsContainer}>
+        <ul></ul>
+      </section>
     </section>
   );
 };
