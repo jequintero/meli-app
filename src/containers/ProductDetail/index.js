@@ -11,7 +11,7 @@ const ProductDetail = ({ intl, image, name, description, price, decimals }) => {
   return (
     <section>
       <Helmet>
-        <title>{formatMessage(messages.title, { productName: '' })}</title>
+        <title>{formatMessage(messages.title, { productName: name })}</title>
       </Helmet>
       <Breadcrumbs />
       <section className={styles.productDetailContainer}>
