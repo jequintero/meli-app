@@ -4,5 +4,9 @@
 
   "app.containers.HomePage.title": "Mercado Libre",
 
-  "app.containers.SearchResults.title": "Resultados"
+  "app.containers.SearchResults.title": "Resultados",
+
+  "app.containers.ProductDetail.title": "Detalle {productName}",
+  "app.containers.ProductDetail.buy": "Comprar",
+  "app.containers.ProductDetail.productDescription": "Descripción del producto"
 }
