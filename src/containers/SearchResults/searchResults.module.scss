@@ -2,11 +2,11 @@
 
 section.searchResultsContainer {
   background: $white;
-  border-radius: 0.25em;
+  border-radius: 0.25rem;
   ul {
       list-style: none;
       display: grid;
-      margin-bottom: 5em;
+      margin-bottom: 5rem;
       li+li:before {
           content: "";
           height: 1px;
@@ -16,7 +16,7 @@ section.searchResultsContainer {
           top: 0;
           left: 0;
           right: 0;
-          margin: 0 1em;
+          margin: 0 1rem;
       }
   }
 }

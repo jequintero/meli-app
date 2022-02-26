@@ -12,12 +12,12 @@ header {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5em 1em;
+    padding: 0.5rem 1rem;
 
     @media (min-width: $tablet-width) {
       max-width: $max-tablet-width;
       margin: 0 auto;
-      padding: 0.5em 0;
+      padding: 0.5rem 0;
     }
     @media (min-width: $normal-desktop-width) {
       max-width: $max-normal-desktop-width;
@@ -38,19 +38,19 @@ header {
     .searchContainer {
       display: flex;
       background: $white;
-      border-radius: 0.25em;
+      border-radius: 0.25rem;
       overflow: hidden;
       width: calc(100% - #{$navbar-separation});
       position: relative;
     
       .input {
         border: none;
-        font-size: 1.125em;
-        padding: 0.5em 1.5em 0.5em 0.5em;
+        font-size: 1.125rem;
+        padding: 0.5rem 1.5rem 0.5rem 0.5rem;
         outline: none;
         width: 100%;
         font-family: $primary-font;
-        letter-spacing: 0.02em;
+        letter-spacing: 0.02rem;
       }
       .submit {
         background: image-set(
@@ -60,7 +60,7 @@ header {
         background-repeat: no-repeat;
         background-position: center;
         border: none;
-        padding: 0 1.5em;
+        padding: 0 1.5rem;
         position: absolute;
         right: 0;
         bottom: 0;

@@ -15,6 +15,11 @@ const LoadableSearchResults = Loadable({
   loading: () => <div>Loading</div>
 });
 
+const LoadableProductDetail = Loadable({
+  loader: () => import('../containers/ProductDetail'),
+  loading: () => <div>Loading</div>
+});
+
 const messages = {
   es: messages_es
 };
@@ -30,7 +35,12 @@ class App extends Component {
           <main className="main">
             <Switch>
               <Route exact path="/" component={LoadableHomePage} />
-              <Route path="/items" component={LoadableSearchResults} />
+              <Route exact path="/items" component={LoadableSearchResults} />
+              <Route
+                exact
+                path="/items/:id"
+                component={LoadableProductDetail}
+              />
             </Switch>
           </main>
         </div>
