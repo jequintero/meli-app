@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { imagePath } from '../../utils/assetUtils';
 import PropTypes from 'prop-types';
 import { injectIntl } from 'react-intl';
@@ -7,6 +7,7 @@ import styles from './navbar.module.scss';
 
 const NavBar = ({ intl }) => {
   const { formatMessage } = intl;
+
   return (
     <nav>
       <figure className={styles.logoContainer}>
@@ -17,7 +18,7 @@ const NavBar = ({ intl }) => {
           alt={formatMessage(messages.logoAlt)}
         />
       </figure>
-      <form className={styles.searchContainer}>
+      <form className={styles.searchContainer} action={'/items'}>
         <input
           className={styles.input}
           type="search"

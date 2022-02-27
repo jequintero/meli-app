@@ -6,6 +6,7 @@ import morgan from 'morgan';
 import bodyParser from 'body-parser';
 
 import { renderServerSideApp } from './renderServerSideApp';
+import productRoutes from './api';
 
 const { PUBLIC_URL = '' } = process.env;
 
@@ -32,5 +33,7 @@ app.use(
 );
 
 app.use(morgan('tiny'));
+
+app.use(productRoutes);
 
 app.use(renderServerSideApp);

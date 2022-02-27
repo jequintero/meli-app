@@ -1,17 +1,23 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './breadcrumbs.module.scss';
 
-const Breadcrumbs = () => {
+const Breadcrumbs = ({ values = [] }) => {
   return (
     <nav className={styles.breadcrumbs}>
       <ul>
-        <li>
-          <a href="/">Product Flow 1</a>
-        </li>
-        <li>Product Flow 2</li>
+        {values.map(value => (
+          <li>
+            <a href={`/items?search=${value}`}>{value}</a>
+          </li>
+        ))}
       </ul>
     </nav>
   );
+};
+
+Breadcrumbs.propTypes = {
+  values: PropTypes.array
 };
 
 export default Breadcrumbs;
