@@ -10,7 +10,7 @@ export const cleanCategories = categoryNode => {
 // Build product basic information json
 export const buildProductItem = product => {
   const { id, title, currency_id, price, condition, shipping } = product;
-  const { integers, decimals } = splitDecimals(price.toLocaleString('es'));
+  const { integers, decimals } = splitDecimals(price.toLocaleString('es-MX'));
   return {
     id,
     title,
@@ -32,7 +32,7 @@ export const buildAuthorInformation = () => ({
 });
 
 const splitDecimals = number => {
-  const splittedNumber = number.split(',');
+  const splittedNumber = number.split('.');
 
   return {
     integers: splittedNumber[0],
