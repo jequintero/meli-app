@@ -4,7 +4,7 @@ import {
   buildAuthorInformation
 } from '../utils/product';
 
-const list = apiResponse => {
+export const list = apiResponse => {
   const { results } = apiResponse;
   //Get categories
   const categoryNode = apiResponse.filters.find(
@@ -22,7 +22,7 @@ const list = apiResponse => {
   };
 };
 
-const one = apiResponse => {
+export const one = apiResponse => {
   const { sold_quantity, pictures } = apiResponse;
   return {
     ...buildAuthorInformation(),
@@ -34,16 +34,10 @@ const one = apiResponse => {
   };
 };
 
-const description = apiResponse => {
+export const description = apiResponse => {
   const { plain_text } = apiResponse;
 
   return {
     description: plain_text
   };
-};
-
-module.exports = {
-  list,
-  one,
-  description
 };
