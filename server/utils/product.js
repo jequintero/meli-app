@@ -10,16 +10,16 @@ export const cleanCategories = categoryNode => {
 // Build product basic information json
 export const buildProductItem = product => {
   const { id, title, currency_id, price, condition, shipping } = product;
-
+  const { integers, decimals } = splitDecimals(price.toLocaleString('es'));
   return {
     id,
     title,
     price: {
       currency: currency_id,
-      amount: price,
-      decimals: 0
+      amount: integers,
+      decimals: formatDecimal(decimals)
     },
-    condition,
+    condition: condition === 'new' ? 'Nuevo' : 'Usado',
     free_shipping: shipping.free_shipping
   };
 };
@@ -30,3 +30,16 @@ export const buildAuthorInformation = () => ({
     lastname: ''
   }
 });
+
+const splitDecimals = number => {
+  console.log(number);
+  const splittedNumber = number.split(',');
+
+  return {
+    integers: splittedNumber[0],
+    decimals: splittedNumber.length > 1 ? splittedNumber[1] : 0
+  };
+};
+
+const formatDecimal = number =>
+  `${number}`.length <= 1 ? number * 10 : number;
