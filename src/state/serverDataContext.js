@@ -18,7 +18,7 @@ export const ServerDataProvider = props => {
 };
 
 ServerDataProvider.propTypes = {
-  value: PropTypes.object.isRequired,
+  value: PropTypes.object,
   children: PropTypes.node.isRequired
 };
 
