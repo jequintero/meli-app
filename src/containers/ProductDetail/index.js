@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { injectIntl } from 'react-intl';
 import { Helmet } from 'react-helmet';
 import { api } from '../../api';
+import { twoDigitsInteger } from '../../utils/format';
 import { useServerData } from '../../state/serverDataContext';
 import { useParams } from 'react-router-dom';
 import Breadcrumbs from '../../components/Breadcrumbs';
@@ -11,7 +12,6 @@ import messages from './messages';
 
 const ProductDetail = ({ intl, history }) => {
   const { formatMessage } = intl;
-
   const { id } = useParams();
 
   const serverProduct = useServerData(data => {
@@ -51,7 +51,7 @@ const ProductDetail = ({ intl, history }) => {
           <h3>{title}</h3>
           <h1>
             {`$ ${amount}`}
-            <span>{decimals}</span>
+            <span>{twoDigitsInteger(decimals)}</span>
           </h1>
           <button>{formatMessage(messages.buy)}</button>
         </div>

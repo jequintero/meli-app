@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { injectIntl } from 'react-intl';
 import { Helmet } from 'react-helmet';
@@ -17,6 +18,15 @@ const SearchResults = ({ intl, history }) => {
     return data.products || {};
   });
 
+  const [products, setProducts] = useState(serverProducts);
+  const search = useLocation().search;
+  useEffect(() => {
+    if (!serverProducts.length) {
+      const searchText = new URLSearchParams(search).get('search');
+      api.products.filter(searchText).then(product => setProducts(product));
+    }
+  }, [search, serverProducts.length]);
+
   const { formatMessage } = intl;
 
   const goToDetails = productId => history.push(`items/${productId}`);
@@ -25,11 +35,11 @@ const SearchResults = ({ intl, history }) => {
       <Helmet>
         <title>{formatMessage(messages.title)}</title>
       </Helmet>
-      <Breadcrumbs values={serverProducts.categories} />
+      <Breadcrumbs values={products.categories} />
       <section className={styles.searchResultsContainer}>
         <ul>
-          {serverProducts.items
-            ? serverProducts.items.map(
+          {products.items
+            ? products.items.map(
                 ({
                   id,
                   title,
