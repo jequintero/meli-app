@@ -32,7 +32,6 @@ export const buildAuthorInformation = () => ({
 });
 
 const splitDecimals = number => {
-  console.log(number);
   const splittedNumber = number.split(',');
 
   return {
