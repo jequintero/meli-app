@@ -8,5 +8,8 @@
 
   "app.containers.ProductDetail.title": "Detalle {productName}",
   "app.containers.ProductDetail.buy": "Comprar",
-  "app.containers.ProductDetail.productDescription": "Descripción del producto"
+  "app.containers.ProductDetail.productDescription": "Descripción del producto",
+  "app.containers.ProductDetail.status": "{condition} - {sold_quantity} vendidos",
+
+  "app.containers.ErrorPage.title": "Error"
 }

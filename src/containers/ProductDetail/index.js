@@ -1,28 +1,56 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { injectIntl } from 'react-intl';
 import { Helmet } from 'react-helmet';
+import { api } from '../../api';
+import { useServerData } from '../../state/serverDataContext';
+import { useParams } from 'react-router-dom';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import styles from './productDetail.module.scss';
 import messages from './messages';
 
-const ProductDetail = ({ intl, image, name, description, price, decimals }) => {
+const ProductDetail = ({ intl, history }) => {
   const { formatMessage } = intl;
+
+  const { id } = useParams();
+
+  const serverProduct = useServerData(data => {
+    if (data.product && data.product.error) {
+      history.push('/error');
+    }
+    return data.product || {};
+  });
+
+  const [product, setProduct] = useState(serverProduct);
+
+  useEffect(() => {
+    if (!serverProduct.length) {
+      api.products.byId(id).then(product => setProduct(product));
+    }
+  }, [id, serverProduct.length]);
+
+  const { item, description } = product;
+  const { title = '', price = 0, picture, condition = '', sold_quantity = 0 } =
+    item || {};
+  const { amount = 0, decimals = 0 } = price || {};
+
   return (
     <section>
       <Helmet>
-        <title>{formatMessage(messages.title, { productName: name })}</title>
+        {<title>{formatMessage(messages.title, { productName: title })}</title>}
       </Helmet>
       <Breadcrumbs />
       <section className={styles.productDetailContainer}>
         <figure>
-          <img src={image} alt={name} />
+          <img src={picture} alt={title} />
         </figure>
         <div className={styles.buy}>
-          <p className={styles.status}>Status</p>
-          <h3>{name}</h3>
+          <p className={styles.status}>
+            {formatMessage(messages.status, { condition, sold_quantity })}
+          </p>
+          <h3>{title}</h3>
           <h1>
-            {`$ ${price}`}
+            {`$ ${amount}`}
             <span>{decimals}</span>
           </h1>
           <button>{formatMessage(messages.buy)}</button>
@@ -42,7 +70,18 @@ ProductDetail.propTypes = {
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
-  decimals: PropTypes.number.isRequired
+  decimals: PropTypes.number.isRequired,
+  history: PropTypes.object.isRequired
+};
+
+ProductDetail.fetchData = req => {
+  const url = req.url.split('/');
+  const productId = url[url.length - 1];
+  return api.products.byId(productId).then(product => {
+    return {
+      product
+    };
+  });
 };
 
 export default injectIntl(ProductDetail);

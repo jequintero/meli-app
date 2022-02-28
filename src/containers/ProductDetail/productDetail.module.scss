@@ -37,10 +37,12 @@ section.productDetailContainer {
     }
     @media (min-width: $large-desktop-width) {
       width: $product-image-size;
+      max-height: $product-image-size
     }
     img {
       width: 100%;
-      object-fit: cover;
+      height: 100%;
+      object-fit: contain;
     }
   }
   div.buy {

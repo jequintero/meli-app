@@ -13,6 +13,9 @@ li.product {
         grid-template-columns: $product-image-size 42% 1fr;
         grid-template-rows: 1fr;
         align-items: start;
+        &:hover {
+            cursor: pointer;
+        }
         @media (min-width: $tablet-width) {
             grid-template-columns: $product-image-size 45% 1fr;
         }
@@ -31,7 +34,7 @@ li.product {
         div.details {
             color: $dark-gray;
             margin: 0.6rem 0;
-            h3:after {
+            h3.free_shipping:after {
                 content: "";
                 width: 18px;
                 height: 18px;
@@ -48,7 +51,7 @@ li.product {
                 font-size: 1.125rem;
             }
         }
-        div.city {
+        div.state {
             margin: 2.2rem 0;
             text-align: center;
             display: flex;
