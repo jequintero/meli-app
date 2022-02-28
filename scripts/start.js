@@ -35,6 +35,8 @@ process.on('unhandledRejection', err => {
 
 const DEFAULT_PORT = process.env.PORT || 3000;
 const HOST = process.env.HOST || '0.0.0.0';
+process.env.API_URL = `http://localhost:${DEFAULT_PORT}`;
+
 const isInteractive = process.stdout.isTTY;
 const server = express();
 

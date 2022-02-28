@@ -13,7 +13,12 @@
     "start": "node scripts/start.js",
     "lint": "eslint src/**/*.js",
     "format": "prettier --write \"src/**/*.{js,json,css}\"",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "start:prod": "node scripts/startProd.js",
+    "build": "node scripts/build.js",
+    "docker:build": "docker build --rm -t jequintero/meli-app .",
+    "docker:start": "docker run --rm -it -p 3000:3000 jequintero/meli-app",
+    "docker": "yarn run docker:build && yarn run docker:start"
   },
   "husky": {
     "hooks": {

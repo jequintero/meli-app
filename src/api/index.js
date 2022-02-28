@@ -7,5 +7,5 @@ export function apiFactory(http) {
   };
 }
 
-const http = httpClient('http://localhost:3000');
+const http = httpClient(process.env.API_URL);
 export const api = apiFactory(http);
