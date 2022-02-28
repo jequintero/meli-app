@@ -66,11 +66,6 @@ const ProductDetail = ({ intl, history }) => {
 
 ProductDetail.propTypes = {
   intl: PropTypes.object.isRequired,
-  image: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
-  decimals: PropTypes.number.isRequired,
   history: PropTypes.object.isRequired
 };
 
