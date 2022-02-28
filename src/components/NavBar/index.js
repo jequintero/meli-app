@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { imagePath } from '../../utils/assetUtils';
 import PropTypes from 'prop-types';
 import { injectIntl } from 'react-intl';

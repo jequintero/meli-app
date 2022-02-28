@@ -9,12 +9,17 @@ import messages from './messages';
 import { api } from '../../api';
 import { useServerData } from '../../state/serverDataContext';
 
-const SearchResults = ({ intl }) => {
+const SearchResults = ({ intl, history }) => {
   const serverProducts = useServerData(data => {
+    if (data.products && data.products.error) {
+      history.push('/error');
+    }
     return data.products || {};
   });
 
   const { formatMessage } = intl;
+
+  const goToDetails = productId => history.push(`items/${productId}`);
   return (
     <section>
       <Helmet>
@@ -45,6 +50,7 @@ const SearchResults = ({ intl }) => {
                       state_name
                     }}
                     price={price.amount}
+                    handleGoToDetails={goToDetails}
                   />
                 )
               )
@@ -56,7 +62,8 @@ const SearchResults = ({ intl }) => {
 };
 
 SearchResults.propTypes = {
-  intl: PropTypes.object.isRequired
+  intl: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired
 };
 
 SearchResults.fetchData = req => {

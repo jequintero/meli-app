@@ -14,5 +14,9 @@ export default defineMessages({
   productDescription: {
     id: `${scope}.productDescription`,
     defaultMessage: 'Descripción del producto'
+  },
+  status: {
+    id: `${scope}.status`,
+    defaultMessage: '{condition} - {sold_quantity} vendidos'
   }
 });

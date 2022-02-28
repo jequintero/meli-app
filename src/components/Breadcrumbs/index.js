@@ -6,8 +6,8 @@ const Breadcrumbs = ({ values = [] }) => {
   return (
     <nav className={styles.breadcrumbs}>
       <ul>
-        {values.map(value => (
-          <li>
+        {values.map((value, index) => (
+          <li key={index}>
             <a href={`/items?search=${value}`}>{value}</a>
           </li>
         ))}

@@ -20,6 +20,11 @@ const LoadableProductDetail = Loadable({
   loading: () => <div>Loading</div>
 });
 
+const LoadableError = Loadable({
+  loader: () => import('../containers/ErrorPage'),
+  loading: () => <div>Loading</div>
+});
+
 const messages = {
   es: messages_es
 };
@@ -35,12 +40,13 @@ class App extends Component {
           <main className="main">
             <Switch>
               <Route exact path="/" component={LoadableHomePage} />
-              <Route exact path="/items" component={LoadableSearchResults} />
               <Route
-                exact
                 path="/items/:id"
+                exact
                 component={LoadableProductDetail}
               />
+              <Route exact path="/items" component={LoadableSearchResults} />
+              <Route exact path="*" component={LoadableError} />
             </Switch>
           </main>
         </div>

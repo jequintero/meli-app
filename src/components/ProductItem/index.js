@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { imagePath } from '../../utils/assetUtils';
 import styles from './productItem.module.scss';
 
 const ProductItem = ({
@@ -7,21 +8,24 @@ const ProductItem = ({
   title,
   price,
   picture,
-  condition,
   free_shipping,
-  state_name = ''
+  state_name = '',
+  handleGoToDetails
 }) => {
+  const onClickItem = () => handleGoToDetails(id);
   return (
-    <li className={styles.product}>
+    <li className={styles.product} onClick={onClickItem}>
       <div className={styles.productInfo}>
         <figure>
-          <img src={picture} alt={title} />
+          <img src={picture || imagePath('placeholder.webp')} alt={title} />
         </figure>
         <div className={styles.details}>
-          <h3>{`$ ${price}`}</h3>
+          <h3
+            className={free_shipping ? styles.freeShipping : ''}
+          >{`$ ${price}`}</h3>
           <p className={styles.description}>{title}</p>
         </div>
-        <div className={styles.city}>
+        <div className={styles.state}>
           <p>{state_name}</p>
         </div>
       </div>
@@ -34,9 +38,9 @@ ProductItem.propTypes = {
   title: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   picture: PropTypes.string.isRequired,
-  condition: PropTypes.string,
   free_shipping: PropTypes.bool.isRequired,
-  state_name: PropTypes.string
+  state_name: PropTypes.string,
+  handleGoToDetails: PropTypes.func.isRequired
 };
 
 export default ProductItem;
