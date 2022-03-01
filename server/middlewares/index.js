@@ -1,3 +1,4 @@
+// Validates that the request has the correct query param name
 export const queryParamValidator = paramName => {
   return (req, res, next) => {
     if (req.query && req.query[paramName]) {
@@ -11,6 +12,7 @@ export const queryParamValidator = paramName => {
   };
 };
 
+// Validates that product id starts with "M"
 export const productIdValidator = (req, res, next) => {
   if (req.params && req.params.id && req.params.id.startsWith('M')) {
     next();

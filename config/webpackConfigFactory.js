@@ -18,6 +18,9 @@ const { PUBLIC_URL = '' } = env.raw;
 
 const resolvePath = relativePath => path.resolve(__dirname, relativePath);
 
+/**
+ * This function generates a webpack config object for the client-side bundle.
+ */
 module.exports = function(envType) {
   const IS_DEV = envType === 'development';
   const IS_PROD = envType === 'production';
