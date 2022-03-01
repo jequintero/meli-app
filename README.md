@@ -14,7 +14,7 @@ https://cryptic-earth-37530.herokuapp.com/
 - Sass and autoprefixer
 - Node.js clusters for improved performance under load
 - Prettier and ESLint run on commit
-- Auto deploy on hoerku using docker and github actions
+- Auto deploy on heroku using docker and github actions
 
 ## Init setup 👨‍💻
 
@@ -60,4 +60,4 @@ jobs:
           process_type: web
 ```
 
-Special thanks to [Cullen Jett repo](https://github.com/cullenjett/react-ssr-boilerplate)
+Boilerplate based on [Cullen Jett repo](https://github.com/cullenjett/react-ssr-boilerplate)
