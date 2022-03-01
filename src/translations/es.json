@@ -1,0 +1,16 @@
+{
+  "app.components.NavBar.searchPlaceholder": "Nunca dejes de buscar",
+  "app.components.NavBar.logoAlt": "Logotipo mercado libre",
+
+  "app.containers.HomePage.title": "Mercado Libre",
+
+  "app.containers.SearchResults.title": "Resultados",
+
+  "app.containers.ProductDetail.title": "Detalle {productName}",
+  "app.containers.ProductDetail.buy": "Comprar",
+  "app.containers.ProductDetail.productDescription": "Descripción del producto",
+  "app.containers.ProductDetail.status": "{condition} - {sold_quantity} vendidos",
+
+  "app.containers.ErrorPage.title": "Error",
+  "app.containers.ErrorPage.errorMessage": "Ha ocurrido un error"
+}

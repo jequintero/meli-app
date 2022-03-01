@@ -1,0 +1,74 @@
+@import '../../styles/colors';
+@import '../../styles/fonts';
+@import '../../styles/responsive';
+
+$navbar-separation: 5em;
+$search-icon: '/images/ic_Search';
+
+header {
+  background: $primary;
+  nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+
+    @media (min-width: $tablet-width) {
+      max-width: $max-tablet-width;
+      margin: 0 auto;
+      padding: 0.5rem 0;
+    }
+    @media (min-width: $normal-desktop-width) {
+      max-width: $max-normal-desktop-width;
+    }
+    @media (min-width: $large-desktop-width) {
+      max-width: $max-large-desktop-width;
+    }
+  
+    .logoContainer {
+      display: flex;
+      margin: 0;
+      width: $navbar-separation;
+      .logo {
+        width: 53px;
+      }
+    }
+
+    .searchContainer {
+      display: flex;
+      background: $white;
+      border-radius: 0.25rem;
+      overflow: hidden;
+      width: calc(100% - #{$navbar-separation});
+      position: relative;
+    
+      .input {
+        border: none;
+        font-size: 1.125rem;
+        padding: 0.5rem 1.5rem 0.5rem 0.5rem;
+        outline: none;
+        width: 100%;
+        font-family: $primary-font;
+        letter-spacing: 0.02rem;
+      }
+      .submit {
+        background: image-set(
+          url($search-icon + '.png') 1x,
+          url($search-icon + '@2x.png') 2x
+        ), $light-gray;
+        background-repeat: no-repeat;
+        background-position: center;
+        border: none;
+        padding: 0 1.5rem;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

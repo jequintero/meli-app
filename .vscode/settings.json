@@ -1,0 +1,11 @@
+{
+    "editor.fontLigatures": true,
+    "editor.fontWeight": "500", // Medium
+    "workbench.colorCustomizations": {
+      "statusBar.background" : "#FEE600",
+      "statusBar.noFolderBackground" : "#212121",
+      "statusBar.debuggingBackground": "#0f1416"
+    },
+    "eslint.alwaysShowStatus": true
+  }
+  
