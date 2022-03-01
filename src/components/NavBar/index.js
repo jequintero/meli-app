@@ -18,18 +18,25 @@ const NavBar = ({ intl }) => {
           alt={formatMessage(messages.logoAlt)}
         />
       </figure>
-      <form className={styles.searchContainer} action={'/items'}>
+      <form
+        onSubmit={() => {}}
+        className={styles.searchContainer}
+        action={'/items'}
+        method="GET"
+        data-testid="form"
+      >
         <input
           className={styles.input}
           type="search"
           name="search"
+          data-testid="search"
           placeholder={formatMessage(messages.searchPlaceholder)}
         ></input>
         <input
           className={styles.submit}
           type="submit"
           value=""
-          data-testid="search"
+          data-testid="submit"
         ></input>
       </form>
     </nav>

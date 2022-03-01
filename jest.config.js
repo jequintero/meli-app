@@ -1,9 +1,11 @@
 module.exports = {
-  collectCoverageFrom: ['src/**/*.{js,jsx}'],
+  collectCoverageFrom: ['src/**/*.{js,jsx}', 'server/**/*.{js,jsx}'],
   setupFilesAfterEnv: ['<rootDir>/config/jest/setupTestsAfterEnv.js'],
   testMatch: [
     '<rootDir>/src/**/__tests__/**/*.js?(x)',
-    '<rootDir>/src/**/?(*.)(spec|test).js?(x)'
+    '<rootDir>/src/**/?(*.)(spec|test).js?(x)',
+    '<rootDir>/server/**/__tests__/**/*.js?(x)',
+    '<rootDir>/server/**/?(*.)(spec|test).js?(x)'
   ],
   testEnvironment: 'jsdom',
   testURL: 'http://localhost',

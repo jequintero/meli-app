@@ -11,5 +11,6 @@
   "app.containers.ProductDetail.productDescription": "Descripción del producto",
   "app.containers.ProductDetail.status": "{condition} - {sold_quantity} vendidos",
 
-  "app.containers.ErrorPage.title": "Error"
+  "app.containers.ErrorPage.title": "Error",
+  "app.containers.ErrorPage.errorMessage": "Ha ocurrido un error"
 }

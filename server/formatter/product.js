@@ -5,11 +5,9 @@ import {
 } from '../utils/product';
 
 export const list = apiResponse => {
-  const { results } = apiResponse;
+  const { results, filters } = apiResponse;
   //Get categories
-  const categoryNode = apiResponse.filters.find(
-    filterItem => filterItem.id === 'category'
-  );
+  const categoryNode = filters.find(filterItem => filterItem.id === 'category');
 
   return {
     ...buildAuthorInformation(),

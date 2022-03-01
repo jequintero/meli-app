@@ -6,5 +6,9 @@ export default defineMessages({
   title: {
     id: `${scope}.title`,
     defaultMessage: 'Error'
+  },
+  errorMessage: {
+    id: `${scope}.errorMessage`,
+    defaultMessage: 'Ha ocurrido un error'
   }
 });

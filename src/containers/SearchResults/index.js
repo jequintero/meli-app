@@ -12,10 +12,10 @@ import { useServerData } from '../../state/serverDataContext';
 
 const SearchResults = ({ intl, history }) => {
   const serverProducts = useServerData(data => {
-    if (data.products && data.products.error) {
+    if (data && data.products && data.products.error) {
       history.push('/error');
     }
-    return data.products || {};
+    return data && data.products ? data.products : {};
   });
 
   const [products, setProducts] = useState(serverProducts);

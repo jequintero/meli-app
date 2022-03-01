@@ -11,7 +11,7 @@ const ErrorPage = ({ intl }) => {
       <Helmet>
         <title>{formatMessage(messages.title)}</title>
       </Helmet>
-      <h4>Ha ocurrido un error </h4>
+      <h4>{formatMessage(messages.errorMessage)}</h4>
     </section>
   );
 };

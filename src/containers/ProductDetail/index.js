@@ -15,10 +15,10 @@ const ProductDetail = ({ intl, history }) => {
   const { id } = useParams();
 
   const serverProduct = useServerData(data => {
-    if (data.product && data.product.error) {
+    if (data && data.product && data.product.error) {
       history.push('/error');
     }
-    return data.product || {};
+    return data && data.product ? data.product : {};
   });
 
   const [product, setProduct] = useState(serverProduct);
@@ -30,9 +30,9 @@ const ProductDetail = ({ intl, history }) => {
   }, [id, serverProduct.length]);
 
   const { item, description } = product;
-  const { title = '', price = 0, picture, condition = '', sold_quantity = 0 } =
+  const { title = '', price, picture, condition = '', sold_quantity = 0 } =
     item || {};
-  const { amount = 0, decimals = 0 } = price || {};
+  const { amount = '0', decimals = '00' } = price || {};
 
   return (
     <section>
