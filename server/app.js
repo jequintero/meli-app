@@ -10,6 +10,7 @@ import productRoutes from './api';
 
 const { PUBLIC_URL = '' } = process.env;
 
+// This export is used by initialization code in /scripts
 export const app = express();
 
 app.use(compression());

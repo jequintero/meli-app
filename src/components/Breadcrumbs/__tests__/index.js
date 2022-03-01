@@ -1,8 +1,8 @@
 import React from 'react';
 import { IntlProvider } from 'react-intl';
-import Breadcrumbs from '../Breadcrumbs';
+import Breadcrumbs from '../index';
 import ReactDOM from 'react-dom';
-import messages_es from '../../translations/es.json';
+import messages_es from '../../../translations/es.json';
 
 describe('<Breadcrumbs />', () => {
   it('renders Breadcrumbs', () => {

@@ -19,7 +19,6 @@ const NavBar = ({ intl }) => {
         />
       </figure>
       <form
-        onSubmit={() => {}}
         className={styles.searchContainer}
         action={'/items'}
         method="GET"
