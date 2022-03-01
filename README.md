@@ -57,4 +57,4 @@ jobs:
           process_type: web
 ```
 
-Special thanks to [Cullen Jett repo](https://github.com/cullenjett/react-ssr-boilerplate) 
+Special thanks to [Cullen Jett repo](https://github.com/cullenjett/react-ssr-boilerplate)
