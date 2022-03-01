@@ -8,8 +8,6 @@ const { app } = require('../build/server');
 
 const PORT = process.env.PORT || 3000;
 
-process.env.API_URL = 'https://cryptic-earth-37530.herokuapp.com'; // Deplpoyed URL to serve API
-
 // Use the native Node.js cluster module to create a worker processes for each CPU
 if (cluster.isMaster) {
   console.log(`Master pid: ${process.pid}`);

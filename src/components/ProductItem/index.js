@@ -36,7 +36,7 @@ const ProductItem = ({
 ProductItem.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
+  price: PropTypes.string.isRequired,
   picture: PropTypes.string.isRequired,
   free_shipping: PropTypes.bool.isRequired,
   state_name: PropTypes.string,

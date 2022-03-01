@@ -10,6 +10,6 @@ export function apiFactory(http) {
 const http = httpClient(
   process.env.NODE_ENV !== 'production'
     ? 'http://localhost:3000'
-    : process.env.API_URL
+    : 'https://cryptic-earth-37530.herokuapp.com'
 );
 export const api = apiFactory(http);
