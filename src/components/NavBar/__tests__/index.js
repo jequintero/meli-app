@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
-import NavBar from '../NavBar';
+import NavBar from '../index';
 import ReactDOM from 'react-dom';
-import messages_es from '../../translations/es.json';
+import messages_es from '../../../translations/es.json';
 
 describe('<NavBar />', () => {
   it('renders navbar', () => {

@@ -4,8 +4,6 @@ WORKDIR /meli-app
 
 COPY package*.json ./
 
-COPY yarn.lock /meli-app
-
 RUN yarn install --ignore-engines
 
 # RUN npm install

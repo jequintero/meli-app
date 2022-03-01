@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { IntlProvider } from 'react-intl';
-import ProductDetail from '../ProductDetail';
-import { ServerDataProvider } from '../../state/serverDataContext';
+import ProductDetail from '../index';
+import { ServerDataProvider } from '../../../state/serverDataContext';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 
-import messages_es from '../../translations/es.json';
+import messages_es from '../../../translations/es.json';
 
 const serverData = window.__SERVER_DATA__;
 

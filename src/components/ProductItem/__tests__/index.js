@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ProductItem from '../ProductItem';
-import { ServerDataProvider } from '../../state/serverDataContext';
+import ProductItem from '../index';
+import { ServerDataProvider } from '../../../state/serverDataContext';
 
 const serverData = window.__SERVER_DATA__;
 

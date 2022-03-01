@@ -3,3 +3,8 @@
 /build
 /coverage
 /dist
+!yarn-offline-mirror/
+!src/
+!package.json
+!yarn.lock
+!.yarnrc

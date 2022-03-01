@@ -1,6 +1,5 @@
 import React from 'react';
 import ssrPrepass from 'react-ssr-prepass';
-import chalk from 'chalk';
 
 export const fetchDataForRender = (ServerApp, req) => {
   let data = {};
