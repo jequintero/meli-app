@@ -14,6 +14,8 @@ const ProductDetail = ({ intl, history }) => {
   const { formatMessage } = intl;
   const { id } = useParams();
 
+  const [isLoading, setLoading] = useState(true);
+
   const serverProduct = useServerData(data => {
     if (data && data.product && data.product.error) {
       history.push('/error');
@@ -25,14 +27,17 @@ const ProductDetail = ({ intl, history }) => {
 
   useEffect(() => {
     if (!serverProduct.length) {
-      api.products.byId(id).then(product => setProduct(product));
+      api.products.byId(id).then(product => {
+        setProduct(product);
+        setLoading(false);
+      });
     }
   }, [id, serverProduct.length]);
 
   const { item, description } = product;
   const { title = '', price, picture, condition = '', sold_quantity = 0 } =
     item || {};
-  const { amount = '0', decimals = '00' } = price || {};
+  const { amount, decimals } = price || {};
 
   return (
     <section>
@@ -40,7 +45,10 @@ const ProductDetail = ({ intl, history }) => {
         {<title>{formatMessage(messages.title, { productName: title })}</title>}
       </Helmet>
       <Breadcrumbs />
-      <section className={styles.productDetailContainer}>
+      {isLoading ? <div className="spinner" /> : null}
+      <section
+        className={isLoading ? 'loadingState' : styles.productDetailContainer}
+      >
         <figure>
           <img src={picture} alt={title} />
         </figure>

@@ -7,22 +7,22 @@ import NavBar from './NavBar';
 
 const LoadableHomePage = Loadable({
   loader: () => import('../containers/HomePage'),
-  loading: () => <div>Loading</div>
+  loading: () => <div className="spinner" />
 });
 
 const LoadableSearchResults = Loadable({
   loader: () => import('../containers/SearchResults'),
-  loading: () => <div>Loading</div>
+  loading: () => <div className="spinner" />
 });
 
 const LoadableProductDetail = Loadable({
   loader: () => import('../containers/ProductDetail'),
-  loading: () => <div>Loading</div>
+  loading: () => <div className="spinner" />
 });
 
 const LoadableError = Loadable({
   loader: () => import('../containers/ErrorPage'),
-  loading: () => <div>Loading</div>
+  loading: () => <div className="spinner" />
 });
 
 const messages = {
