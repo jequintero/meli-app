@@ -34,25 +34,28 @@ For development:
 Install the dependencies and devDependencies and start the server.
 
 ## Deployment 🚀
-It's configured to deploy after a merge on main branch. Check .github/main.yml:
-name: Deploy to heroku.
+It's configured to deploy after a merge on main branch. Check *.github/main.yml*:
 ```
+name: Deploy to heroku.
+# Run workflow on every push to master branch.
 on:
   push:
-    branches: [master]
+    branches: main
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Build, Push and Release a Docker container to Heroku. # Your custom step name
         uses: gonuit/heroku-docker-deploy@v1.3.3 # GitHub action name
         with:
           email: ${{ secrets.HEROKU_EMAIL }}
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
-          # (Optional, default: "")
-          # Additional options of docker build command.
+          dockerfile_directory: ./
+          dockerfile_name: Dockerfile
           docker_options: "--no-cache"
           process_type: web
 ```
