@@ -1,5 +1,5 @@
 # meli-app
-## _technical challengue for mercado libre_
+## _technical challenge for mercado libre_
 
 ![Logo](https://logodownload.org/wp-content/uploads/2018/10/mercado-libre-logo-6.png)
 
