@@ -18,12 +18,17 @@ const SearchResults = ({ intl, history }) => {
     return data && data.products ? data.products : {};
   });
 
+  const [isLoading, setLoading] = useState(true);
+
   const [products, setProducts] = useState(serverProducts);
   const search = useLocation().search;
   useEffect(() => {
     if (!serverProducts.length) {
       const searchText = new URLSearchParams(search).get('search');
-      api.products.filter(searchText).then(product => setProducts(product));
+      api.products.filter(searchText).then(product => {
+        setProducts(product);
+        setLoading(false);
+      });
     }
   }, [search, serverProducts.length]);
 
@@ -35,8 +40,11 @@ const SearchResults = ({ intl, history }) => {
       <Helmet>
         <title>{formatMessage(messages.title)}</title>
       </Helmet>
-      <Breadcrumbs values={products.categories} />
-      <section className={styles.searchResultsContainer}>
+      {!isLoading ? <Breadcrumbs values={products.categories} /> : null}
+      {isLoading ? <div className="spinner" /> : null}
+      <section
+        className={isLoading ? 'loadingState' : styles.searchResultsContainer}
+      >
         <ul>
           {products.items
             ? products.items.map(
