@@ -29,7 +29,7 @@ For development:
  
 ## Production 📈
 
-- `yarn run build && npm run start:prod`
+- `yarn run build && yarn run start:prod`
   - Bundle the JS and run the Express server for production
 Install the dependencies and devDependencies and start the server.
 
