@@ -1,1 +1,2 @@
-export const twoDigitsInteger = number => (number <= 0 ? '00' : number);
+export const twoDigitsInteger = number =>
+  `${number}`.length <= 1 ? `0${number}` : number;
